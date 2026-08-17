@@ -1,9 +1,16 @@
 <?php
-$con=mysqli_connect("localhost","root","","computer");
+$con=mysqli_connect("localhost","root","","compu");
 if(!$con)
 {
 	echo "connection is not done";
 	echo "<br>";
+	//echo mysqli_error();
+	echo "<br>";
+	//echo mysqli_connect_error();
+	echo "<br>";
+	echo mysqli_connect_errorno();
+
+
 	
 }
 else
@@ -17,8 +24,8 @@ else
  echo "<br>";
 
 
- $con=mysqli_connect("localhost","root","");
-if(!$con)
+ $conn=mysqli_connect("localhost","root","");
+if(!$conn)
 {
 	echo "connection is not done".mysqli_connect_errorno();
 	echo "<br>";
@@ -31,7 +38,6 @@ else
 {
 	echo "connection is done";
 	echo "<br>";
-	var_dump($con);
 }
- mysqli_select_db($con,"computer");
+ mysqli_select_db($conn,"computer");
 ?>
