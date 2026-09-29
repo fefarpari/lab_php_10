@@ -1,11 +1,15 @@
-<table border="1" cellspacing="5" bgcolor="lightpink">
+<table border="1">
 	<tr>
-		<th> Enrno</th>
+		<th> id</th>
 		<th> name </th>
 		<th> dept </th>
+		<th> mob </th>
+		<th> dob </th>
+		<th> delete </th>
+		<th> update </th>
 	</tr>
 <?php 
-$con=mysqli_connect("localhost","root","","computer");
+$con=mysqli_connect("localhost","root","","university");
 if(!$con)
 {
 	die("not");
@@ -18,9 +22,17 @@ if(mysqli_num_rows($result)>0)
 	while($row=mysqli_fetch_assoc($result))
 	{
 		echo "<tr>";
-		echo "<td>" . $row['Enrno'] . "</td>";
+		echo "<td>" . $row['id'] . "</td>";
 		echo "<td>" . $row['name'] . "</td>";
    		echo "<td>" . $row['dept'] . "</td>";
+   		echo "<td>" . $row['mob'] . "</td>";
+   		echo "<td>" . $row['dob'] . "</td>";
+   		echo "<td>";
+   		echo "<a href='delete.php?id=" .$row['id'] . "'> delete </a>" ;
+   		echo "</td>";
+   		echo "<td>";
+   		echo "<a href='update.php?id=" .$row['id'] . "'> Update </a>" ;
+   		echo "</td>";
 		echo "</tr>";
 	}
 }
